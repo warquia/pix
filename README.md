@@ -9,9 +9,8 @@ Este pacote proporciona integração inicial com o sistema da MATERA\FLAGSHIP, p
 
 ### Instalação
 
-```phpt
+```php
 composer require warquia/pix
-
 ```
 
 ### Configurações Iniciais
