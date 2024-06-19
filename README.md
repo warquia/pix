@@ -34,10 +34,10 @@ $config = [
 ```php
 $psp = new \Warquia\Pix\Psp($config);
 ```
-Para aprofundamento ou dúvidas utilize example
+Para aprofundamento ou dúvidas navegue até a pasta "example"
 
 
-
+<hr>
 ## Requisitos
 Necessário PHP 7.1 ou superior
 
