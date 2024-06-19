@@ -11,6 +11,7 @@ Este pacote proporciona integração inicial com o sistema da MATERA\FLAGSHIP, p
 
 ```phpt
 composer require warquia/pix
+
 ```
 
 ### Configurações Iniciais
@@ -18,7 +19,7 @@ composer require warquia/pix
 Configure os dados de PSP, Api e Certificado 
 
 
-```phpt
+```php
 $config = [
     'environment' => Constants::ENVIRONMENT_TEST,
     'psp_name' => Constants::PSP_NAME_MATERA,
@@ -31,7 +32,7 @@ $config = [
 ```
 ### Exemplos de Uso
 
-```phpt
+```php
 $psp = new \Warquia\Pix\Psp($config);
 ```
 Para aprofundamento ou dúvidas utilize example
