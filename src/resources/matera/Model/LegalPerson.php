@@ -2,7 +2,7 @@
 
 namespace Warquia\Pix\resources\matera\Model;
 
-class PessoaJuridica
+class LegalPerson
 {
     public $externalIdentifier;
     public $clientType;

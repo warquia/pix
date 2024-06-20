@@ -5,7 +5,7 @@ require '../vendor/autoload.php';
 use Warquia\Pix\Constants;
 use Warquia\Pix\resources\matera\ConstantsMatera;
 use Warquia\Pix\resources\matera\Matera;
-use Warquia\Pix\resources\matera\Model\PessoaJuridica;
+use Warquia\Pix\resources\matera\Model\LegalPerson;
 
 $config = [
     'environment' => Constants::ENVIRONMENT_TEST,
@@ -19,7 +19,7 @@ $config = [
 
 $psp = new \Warquia\Pix\Psp($config);
 if ($psp->getClass() instanceof Matera) {
-    $pj = (new PessoaJuridica());
+    $pj = (new LegalPerson());
     $pj->externalIdentifier = $psp->generateTxId();
     $pj->clientType = ConstantsMatera::CLIENT_TYPE["CORPORATE"];
     $pj->accountType = ConstantsMatera::ACCOUNT_TYPE["UNLIMITED_ORDINARY"];

@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\ClientException;
 use Warquia\Pix\Constants;
 use Warquia\Pix\Psp;
 use Warquia\Pix\resources\matera\Model\ExternalIdentifier;
-use Warquia\Pix\resources\matera\Model\PessoaJuridica;
+use Warquia\Pix\resources\matera\Model\LegalPerson;
 use Warquia\Pix\ResponseDTO;
 
 class Matera extends Psp
@@ -78,11 +78,11 @@ class Matera extends Psp
     }
 
     /**
-     * @param PessoaJuridica $pessoaJuridica
+     * @param LegalPerson $pessoaJuridica
      * @return ResponseDTO
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function createAccount(PessoaJuridica $pessoaJuridica): ResponseDTO
+    public function createAccount(LegalPerson $pessoaJuridica): ResponseDTO
     {
         $hmacData = $pessoaJuridica->externalIdentifier . $pessoaJuridica->client->taxIdentifier->taxId;
         $hash = self::generateHmacSHA256($hmacData);
