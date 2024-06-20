@@ -17,11 +17,6 @@ $config = [
     'certificateKey' => __DIR__ . '/hml.key',
 ];
 
-
-echo \Warquia\Pix\Psp::generateTxId();
-
-return;
-
 $psp = new \Warquia\Pix\Psp($config);
 if ($psp->getClass() instanceof Matera) {
     $pj = (new LegalPerson());
