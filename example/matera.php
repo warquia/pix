@@ -35,7 +35,7 @@ if ($psp->getClass() instanceof Matera) {
 
     $pj->additionalDetailsCorporate = (new \Warquia\Pix\resources\matera\Model\AdditionalDetailsCorporate());
     $pj->additionalDetailsCorporate->companyName = 'Nome da Empresa';
-    $pj->additionalDetailsCorporate->businessLine = '47';
+    $pj->additionalDetailsCorporate->businessLine = 47;
     $pj->additionalDetailsCorporate->establishmentForm = '1';
     $pj->additionalDetailsCorporate->establishmentDate = '1990-05-29';
 
@@ -101,7 +101,8 @@ if ($psp->getClass() instanceof Matera) {
     $account = $psp->getClass()->createAccount($pj);
 
     if ($account->code == 200) {
-        $account_id = json_decode(json_encode($account->contents))->data->account->accountId;
+        $account_id =
+            json_decode(json_encode($account->contents))->data->account->accountId;
 
         //##CRIANDO CHAVE PIX
         $chaveIdentifier = (new \Warquia\Pix\resources\matera\Model\ExternalIdentifier());

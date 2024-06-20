@@ -3,6 +3,6 @@
 namespace Warquia\Pix\resources\matera\Model;
 
 class MobilePhone {
-    public $country;
-    public $phoneNumber;
+    public string $country;
+    public string $phoneNumber;
 }

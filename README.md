@@ -39,7 +39,7 @@ Para aprofundamento ou dúvidas navegue até a pasta "example"
 
 <hr>
 ## Requisitos
-Necessário PHP 7.1 ou superior
+Necessário PHP 7.4 ou superior
 
 #### Licença
 GPL-3.0-or-later

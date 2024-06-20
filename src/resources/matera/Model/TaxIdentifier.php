@@ -3,6 +3,6 @@
 namespace Warquia\Pix\resources\matera\Model;
 
 class TaxIdentifier {
-    public $taxId;
-    public $country;
+    public string $taxId;
+    public string $country;
 }

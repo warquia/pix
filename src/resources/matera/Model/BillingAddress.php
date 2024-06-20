@@ -3,12 +3,12 @@
 namespace Warquia\Pix\resources\matera\Model;
 
 class BillingAddress {
-    public $logradouro;
-    public $numero;
-    public $complemento;
-    public $bairro;
-    public $cidade;
-    public $estado;
-    public $cep;
-    public $pais;
+    public string $logradouro;
+    public string $numero;
+    public string $complemento;
+    public string $bairro;
+    public string $cidade;
+    public string $estado;
+    public string $cep;
+    public string $pais;
 }

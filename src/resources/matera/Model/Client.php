@@ -3,8 +3,10 @@
 namespace Warquia\Pix\resources\matera\Model;
 
 class Client {
-    public $name;
-    public $email;
-    public $taxIdentifier; // Objeto TaxIdentifier
-    public $mobilePhone; // Objeto MobilePhone
+    public string $name;
+    public string $socialName;
+    public string $email;
+    public TaxIdentifier $taxIdentifier; // Objeto TaxIdentifier
+    public MobilePhone $mobilePhone; // Objeto MobilePhone
+    public MailAddress $mailAddress;
 }
