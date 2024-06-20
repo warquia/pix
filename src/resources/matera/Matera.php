@@ -113,7 +113,7 @@ class Matera extends Psp
             }
             return (new ResponseDTO($e->getCode(), $e->getMessage(), $response));
         } catch (\Exception $e) {
-            return (new ResponseDTO(-1, 'error', $e->getMessage()));
+            return (new ResponseDTO(-1, $e->getMessage(), $e->getMessage()));
         }
     }
 
@@ -162,7 +162,7 @@ class Matera extends Psp
             }
             return (new ResponseDTO($e->getCode(), $e->getMessage(), $response));
         } catch (\Exception $e) {
-            return (new ResponseDTO(-1, 'error', $e->getMessage()));
+            return (new ResponseDTO(-1, $e->getMessage(), $e->getMessage()));
         }
     }
     public function queryAliasAssociated(string $accountId): ResponseDTO
@@ -194,7 +194,7 @@ class Matera extends Psp
             }
             return (new ResponseDTO($e->getCode(), $e->getMessage(), $response));
         } catch (\Exception $e) {
-            return (new ResponseDTO(-1, 'error', $e->getMessage()));
+            return (new ResponseDTO(-1, $e->getMessage(), $e->getMessage()));
         }
     }
 
@@ -230,7 +230,7 @@ class Matera extends Psp
             }
             return (new ResponseDTO($e->getCode(), $e->getMessage(), $response));
         } catch (\Exception $e) {
-            return (new ResponseDTO(-1, 'error', $e->getMessage()));
+            return (new ResponseDTO(-1, $e->getMessage(), $e->getMessage()));
         }
     }
 
