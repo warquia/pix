@@ -60,7 +60,7 @@ class Psp /*extends PspAbstract*/
         return $this->pspName;
     }
 
-    public function generateTxId(bool $clearIfen = true) : string
+    public static function generateTxId(bool $clearIfen = true) : string
     {
         if (function_exists('com_create_guid') === true) {
             $txId = trim(com_create_guid(), '{}');

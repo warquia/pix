@@ -17,10 +17,15 @@ $config = [
     'certificateKey' => __DIR__ . '/hml.key',
 ];
 
+
+echo \Warquia\Pix\Psp::generateTxId();
+
+return;
+
 $psp = new \Warquia\Pix\Psp($config);
 if ($psp->getClass() instanceof Matera) {
     $pj = (new LegalPerson());
-    $pj->externalIdentifier = $psp->generateTxId();
+    $pj->externalIdentifier = \Warquia\Pix\Psp::generateTxId();
     $pj->clientType = ConstantsMatera::CLIENT_TYPE["CORPORATE"];
     $pj->accountType = ConstantsMatera::ACCOUNT_TYPE["UNLIMITED_ORDINARY"];
     $pj->billingAddress = (new \Warquia\Pix\resources\matera\Model\BillingAddress());
@@ -101,13 +106,12 @@ if ($psp->getClass() instanceof Matera) {
     $account = $psp->getClass()->createAccount($pj);
 
     if ($account->code == 200) {
-        $account_id =
-            json_decode(json_encode($account->contents))->data->account->accountId;
+        $account_id = json_decode(json_encode($account->contents))->data->account->accountId;
 
         //##CRIANDO CHAVE PIX
         $chaveIdentifier = (new \Warquia\Pix\resources\matera\Model\ExternalIdentifier());
         $chaveIdentifier->accountId = $account_id;
-        $chaveIdentifier->externalIdentifier = $psp->generateTxId(false);
+        $chaveIdentifier->externalIdentifier = \Warquia\Pix\Psp::generateTxId(false);
         $chaveIdentifier->type = ConstantsMatera::ALIAS_TYPE_EVP;
         $account_alias = $psp->getClass()->aliasRegistration($chaveIdentifier);
 
