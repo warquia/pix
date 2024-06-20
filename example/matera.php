@@ -10,9 +10,9 @@ use Warquia\Pix\resources\matera\Model\LegalPerson;
 $config = [
     'environment' => Constants::ENVIRONMENT_TEST,
     'psp_name' => Constants::PSP_NAME_MATERA,
-    'client_id' => 'acbr-hml',
-    'client_secret' => '9f6629f7-e4a3-4462-ae7c-3421c9b0b90b',
-    'secret_key' => 'EDD70F94-9A56-4F24-AA32-ED7BA7EF3C73',
+    'client_id' => 'hml',
+    'client_secret' => 'fictício-ezz3-1818-ip7c-fictício',
+    'secret_key' => 'fictício-9X47-fictício-BE33-fictício',
     'certificate' => __DIR__ . '/hml.pem',
     'certificateKey' => __DIR__ . '/hml.key',
 ];
