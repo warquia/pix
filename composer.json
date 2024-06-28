@@ -4,8 +4,7 @@
   "keywords": ["Matera", "FlagShip", "PIX", "Pix da Matera"],
   "version": "0.1.1",
   "type": "library",
-  "license": "GPL-3.0-or-later",
-  "homepage": "https://www.vivasistemas.com.br",
+  "license": "MIT",
   "authors": [
     {
       "name": "Warquia Pereira",

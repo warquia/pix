@@ -4,18 +4,45 @@ namespace Warquia\Pix;
 
 use Warquia\Pix\resources\matera\Matera;
 
-class Psp /*extends PspAbstract*/
+/**
+ *
+ */
+class Psp
 {
-    protected $config;
+    /**
+     * @var array
+     */
+    public $config;
 
-    protected $client;
+    /**
+     * @var \GuzzleHttp\Client
+     */
+    public $client;
 
-    protected $pspClass;
+    /**
+     * @var Matera|null
+     */
+    public $pspClass;
 
+    /**
+     * @var array|\Psr\Http\Message\ResponseInterface
+     */
     protected $retornoToken;
 
+    /**
+     * @var mixed
+     */
     protected $pspName;
 
+    /**
+     * @var
+     */
+    public $optionsRequest;
+
+    /**
+     * @param array $config
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function __construct(array $config)
     {
         $this->config = $config;
@@ -33,11 +60,55 @@ class Psp /*extends PspAbstract*/
         }
 
         $this->client = $this->pspClass->getClient();
+        $optionsRequest = $this->pspClass->initOptionsRequest();
 
         if (is_null($this->retornoToken) or ($this->retornoToken == '')) {
             $this->retornoToken = $this->pspClass->generateToken();
         }
     }
+
+    /**
+     * @param string $key
+     * @param string $value
+     * @return void
+     */
+    public function setHeader(string $key, string $value) {
+        $this->optionsRequest['headers'][$key] = $value;
+    }
+
+    /**
+     * @param bool $initToDefault
+     * @return void
+     */
+    public function resetOptionsRequest(bool $initToDefault = true) {
+        if ($initToDefault) {
+            $this->optionsRequest = $this->pspClass->initOptionsRequest();
+        } else {
+            $this->optionsRequest = [];
+        }
+    }
+
+    /**
+     * @param string $body
+     * @return void
+     */
+    public function setBody(string $body) {
+        $this->optionsRequest['body'] = $body;
+    }
+
+    /**
+     * @param string $key
+     * @param string $value
+     * @return void
+     */
+    public function setFormParams(string $key, string $value) {
+        $this->optionsRequest['form_params'][$key] = $value;
+    }
+
+    /**
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getToken()
     {
         if (is_null($this->retornoToken) or ($this->retornoToken == '')) {
@@ -51,15 +122,26 @@ class Psp /*extends PspAbstract*/
         return $this->retornoToken['access_token'];
     }
 
+    /**
+     * @return Matera|null
+     */
     public function getClass()
     {
         return $this->pspClass;
     }
+
+    /**
+     * @return mixed
+     */
     public function getPspName()
     {
         return $this->pspName;
     }
 
+    /**
+     * @param bool $clearIfen
+     * @return string
+     */
     public static function generateTxId(bool $clearIfen = true) : string
     {
         if (function_exists('com_create_guid') === true) {

@@ -29,8 +29,5 @@ class ConstantsMatera
     const DOCUMENT_TYPE_PICTURE = "PICTURE";
     const DOCUMENT_TYPE_IDENTITY_FRONT = "IDENTITY_FRONT";
     const DOCUMENT_TYPE_IDENTITY_BACK = "IDENTITY_BACK";
-
     const ALIAS_TYPE_EVP = 'EVP';
-
-
 }
