@@ -42,4 +42,4 @@ Para aprofundamento ou dúvidas navegue até a pasta "example"
 Necessário PHP 7.4 ou superior
 
 #### Licença
-GPL-3.0-or-later
+MIT
