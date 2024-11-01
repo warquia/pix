@@ -6,7 +6,7 @@ class ConstantsMatera
 {
     const CONNECTION_URL = [
         "AUTHENTICATION" => [
-            "PRODUCTION" => "https://mtls-mp.hml.flagship.maas.link",
+            "PRODUCTION" => "https://mtls-mp.prd.flagship.maas.link",
             "HOMOLOGATION" => "https://mtls-mp.hml.flagship.maas.link"
         ]
     ];
@@ -29,5 +29,8 @@ class ConstantsMatera
     const DOCUMENT_TYPE_PICTURE = "PICTURE";
     const DOCUMENT_TYPE_IDENTITY_FRONT = "IDENTITY_FRONT";
     const DOCUMENT_TYPE_IDENTITY_BACK = "IDENTITY_BACK";
+    const DOCUMENT_TYPE_CNH = "CNH";
+    const DOCUMENT_TYPE_UNKNOWN = "UNKNOWN";
+    
     const ALIAS_TYPE_EVP = 'EVP';
 }
