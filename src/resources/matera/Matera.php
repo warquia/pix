@@ -36,7 +36,7 @@ class Matera
         if ($this->psp->config["environment"] == Constants::ENVIRONMENT_TEST) {
             $uriAuth = ConstantsMatera::CONNECTION_URL["AUTHENTICATION"]["HOMOLOGATION"];
         } elseif ($this->psp->config["environment"] == Constants::ENVIRONMENT_PRODUCTION) {
-            $uriAuth = ConstantsMatera::CONNECTION_URL["AUTHENTICATION"]["ENVIRONMENT_PRODUCTION"];
+            $uriAuth = ConstantsMatera::CONNECTION_URL["AUTHENTICATION"]["PRODUCTION"];
         }
 
         return new Client([
