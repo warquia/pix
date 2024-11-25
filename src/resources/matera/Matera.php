@@ -125,6 +125,41 @@ class Matera
      * @return ResponseDTO
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
+    public function queryBalance(string $accountId): ResponseDTO
+    {
+        $uri = ConstantsMatera::URI_ACCOUNTS . '/' . $accountId . '/balance';
+        $hash = self::generateHmacSHA256($accountId);
+        try {
+            $token = $this->psp->getToken();
+            $this->psp->resetOptionsRequest();
+            $this->psp->setHeader('Content-Type', 'application/json');
+            $this->psp->setHeader('Accept', 'application/json');
+            $this->psp->setHeader('Authorization', 'Bearer ' . $token);
+            $this->psp->setHeader('Transaction-Hash', $hash);
+
+            $response = $this->psp->client->get($uri, $this->psp->optionsRequest);
+            return (new ResponseDTO($response->getStatusCode(),
+                $response->getReasonPhrase(),
+                (array)json_decode($response->getBody()->getContents())));
+
+        } catch (ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = json_decode($response->getBody()->getContents());
+
+            if ($responseBodyAsString <> '') {
+                $response = $responseBodyAsString;
+            }
+            return (new ResponseDTO($e->getCode(), $e->getMessage(), $response));
+        } catch (\Exception $e) {
+            return (new ResponseDTO(-1, $e->getMessage(), $e->getMessage()));
+        }
+    }
+
+    /**
+     * @param string $accountId
+     * @return ResponseDTO
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function queryAccount(string $accountId): ResponseDTO
     {
         $uri = ConstantsMatera::URI_ACCOUNTS . '/' . $accountId;
